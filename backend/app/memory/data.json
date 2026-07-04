@@ -131,12 +131,12 @@
             "email": "sandbox@example.com",
             "company": "Sandbox Inc.",
             "status": "new",
-            "lead_score": 60,
+            "lead_score": 70,
             "sentiment": "Neutral",
-            "conversion_probability": 0.7,
+            "conversion_probability": 0.8,
             "churn_risk": "Low",
             "pipeline_value": 10000.0,
-            "last_message_at": "2026-07-04T11:20:25.343922Z",
+            "last_message_at": "2026-07-04T11:32:04.556210Z",
             "crm_synced": true,
             "ai_summary": "Prospect at Sandbox Inc. is evaluating security features, specifically requesting SAML SSO configuration details.",
             "ai_reply_paused": false,
@@ -150,6 +150,16 @@
                     "sender": "ai",
                     "message": "Our enterprise plan includes comprehensive SAML 2.0 Single Sign-On (SSO) support compatible with Okta, Azure AD, and Ping Identity. We also provide full security compliance documentation and SOC 2 Type II validation. Would you like to connect with our security engineer to review your requirements?",
                     "timestamp": "2026-07-04T11:20:25.381311Z"
+                },
+                {
+                    "sender": "client",
+                    "message": "Do you support SAML SSO integration for enterprise security compliance?",
+                    "timestamp": "2026-07-04T11:32:04.556210Z"
+                },
+                {
+                    "sender": "ai",
+                    "message": "Our enterprise plan includes comprehensive SAML 2.0 Single Sign-On (SSO) support compatible with Okta, Azure AD, and Ping Identity. We also provide full security compliance documentation and SOC 2 Type II validation. Would you like to connect with our security engineer to review your requirements?",
+                    "timestamp": "2026-07-04T11:32:05.947639Z"
                 }
             ]
         }
