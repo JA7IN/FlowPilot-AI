@@ -232,7 +232,7 @@ export default function OverviewTab({
                          log.workflow_id === 'wf-2' ? 'wf-2 (Hot Lead Route)' :
                          log.workflow_id === 'wf-3' ? 'wf-3 (Frustration Escalation)' : log.workflow_id.toUpperCase()}
                       </span>
-                      <span style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
+                      <span suppressHydrationWarning style={{ fontSize: '11px', color: 'var(--text-muted)' }}>
                         {new Date(log.timestamp).toLocaleTimeString()}
                       </span>
                     </div>

@@ -303,7 +303,7 @@ export default function ConversationsTab({
                         }}
                       >
                         <p>{msg.message}</p>
-                        <span style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block', marginTop: '4px', textAlign: isClient ? 'right' : 'left' }}>
+                        <span suppressHydrationWarning style={{ fontSize: '9px', color: 'var(--text-muted)', display: 'block', marginTop: '4px', textAlign: isClient ? 'right' : 'left' }}>
                           {msg.timestamp.includes('Z') ? new Date(msg.timestamp).toLocaleTimeString() : msg.timestamp}
                         </span>
                       </div>
