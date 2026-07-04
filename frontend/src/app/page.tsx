@@ -400,8 +400,11 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-
+      {/* Footer copyright */}
+      <footer className={styles.footerText}>
+        &copy; 2026 FlowPilot AI. All rights reserved. <br />
+        Disclaimer: This platform operates as an autonomous simulation environment. All CRM synchronizations and actions are modeled.
+      </footer>
 
       {/* Login Modal */}
       {isLoginOpen && (
