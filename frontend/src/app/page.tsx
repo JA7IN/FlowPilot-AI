@@ -401,11 +401,7 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer copyright */}
-      <footer className={styles.footerText}>
-        FlowPilot AI is a submission for the Revenue Tech Hackathon. <br />
-        Built with FastAPI, LangGraph, and Next.js.
-      </footer>
+
 
       {/* Login Modal */}
       {isLoginOpen && (
