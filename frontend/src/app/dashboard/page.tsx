@@ -162,6 +162,7 @@ const MOCK_AUDIT_LOGS: AuditLog[] = [
 
 export default function Dashboard() {
   const router = useRouter();
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
   const [activeTab, setActiveTab] = useState('overview');
   const [apiConnected, setApiConnected] = useState(false);
   
@@ -205,26 +206,26 @@ export default function Dashboard() {
   const fetchData = useCallback(async () => {
     try {
       // 1. Leads
-      const leadsRes = await fetch('http://127.0.0.1:8000/api/leads');
+      const leadsRes = await fetch(`${API_BASE}/api/leads`);
       if (!leadsRes.ok) throw new Error("HTTP error leads");
       const leadsData: Lead[] = await leadsRes.json();
       setLeads(leadsData);
       
       // 2. Metrics
-      const metricsRes = await fetch('http://127.0.0.1:8000/api/analytics');
+      const metricsRes = await fetch(`${API_BASE}/api/analytics`);
       if (!metricsRes.ok) throw new Error("HTTP error analytics");
       const metricsData: DashboardMetrics = await metricsRes.json();
       setMetrics(metricsData);
       
       // 3. Audit Logs
-      const logsRes = await fetch('http://127.0.0.1:8000/api/audit-logs');
+      const logsRes = await fetch(`${API_BASE}/api/audit-logs`);
       if (!logsRes.ok) throw new Error("HTTP error audit-logs");
       const logsData: AuditLog[] = await logsRes.json();
       setAuditLogs(logsData);
       
       if (!apiConnected) {
         setApiConnected(true);
-        addCliLog("[sys] REST backend API connection established on http://127.0.0.1:8000.");
+        addCliLog(`[sys] REST backend API connection established on ${API_BASE}.`);
       }
     } catch (e) {
       if (apiConnected) {
@@ -270,7 +271,7 @@ export default function Dashboard() {
     
     if (apiConnected) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/chat', {
+        const response = await fetch(`${API_BASE}/api/chat`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lead_id: leadId, message }),
@@ -400,7 +401,7 @@ export default function Dashboard() {
     
     if (apiConnected) {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/leads/${leadId}/resume`, {
+        const response = await fetch(`${API_BASE}/api/leads/${leadId}/resume`, {
           method: 'POST'
         });
         if (response.ok) {
@@ -445,7 +446,7 @@ export default function Dashboard() {
     
     if (apiConnected) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/workflows/trigger', {
+        const response = await fetch(`${API_BASE}/api/workflows/trigger`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ lead_id: leadId, workflow_id: workflowId }),
@@ -504,7 +505,7 @@ export default function Dashboard() {
     
     if (apiConnected) {
       try {
-        const response = await fetch('http://127.0.0.1:8000/api/reset', { method: 'POST' });
+        const response = await fetch(`${API_BASE}/api/reset`, { method: 'POST' });
         if (response.ok) {
           addCliLog("[sys] Database successfully reset on server.");
           await fetchData();

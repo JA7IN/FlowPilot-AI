@@ -13,6 +13,7 @@ interface Message {
 
 export default function LandingPage() {
   const router = useRouter();
+  const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://127.0.0.1:8000";
   const [messages, setMessages] = useState<Message[]>([
     {
       sender: 'ai',
@@ -89,7 +90,7 @@ export default function LandingPage() {
     
     // Simulate Backend REST call
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/chat', {
+      const response = await fetch(`${API_BASE}/api/chat`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

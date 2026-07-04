@@ -39,6 +39,15 @@ class LeadCreateRequest(BaseModel):
     company: str
     pipeline_value: float
 
+@app.get("/")
+async def root_welcome():
+    return {
+        "status": "online",
+        "service": "FlowPilot AI Backend API",
+        "version": "1.0.0",
+        "documentation": "/docs"
+    }
+
 @app.get("/api/leads")
 async def get_leads_api():
     return store.get_leads()
