@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from typing import TypedDict, List, Dict, Any
 from langgraph.graph import StateGraph, END
 import google.generativeai as genai

@@ -1,4 +1,6 @@
 import os
+from dotenv import load_dotenv
+load_dotenv()
 from datetime import datetime
 from typing import List, Dict, Any
 import google.generativeai as genai
